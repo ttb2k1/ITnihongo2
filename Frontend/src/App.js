@@ -1,24 +1,29 @@
 import logo from './logo.svg';
 import './App.css';
-
+import ReactDOM from "react-dom/client";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import ManagementPage from "./Pages/Management-page/Management-page";
+import TopPage from "./Pages/Top-page/Top-page";
+import LoginPage from "./Pages/Login_page/Login_page";
+import AccountPage from "./Pages/Account-management-page/Account-page";
+import HomePage from "./Pages/Home-page/Home-page";
+import PaymentPage from "./Pages/Payment-page/Payment-page";
+import QRPage from "./Pages/QR-page/QR-page";
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+      <BrowserRouter>
+        <Routes>
+          <Route exact path="/" >
+              <Route exact path="" element={<TopPage />} />
+              <Route exact path="login" element={<LoginPage />} />
+              <Route exact path="homepage" element={<HomePage />} />
+              <Route exact path="payment" element={<PaymentPage />} />
+              <Route exact path="ticket" element={<QRPage />} />
+              <Route exact path="management" element={<ManagementPage />} />
+              <Route exact path="management/account" element={<AccountPage/>} />
+          </Route>
+        </Routes>
+      </BrowserRouter>
   );
 }
 

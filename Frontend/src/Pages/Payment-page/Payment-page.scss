@@ -1,0 +1,38 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  position: fixed;
+  left: 0;
+  right: 0;
+}
+
+.content {
+  .button-payment {
+    .direct,
+    .bank {
+      display: flex;
+      align-items: center;
+      width: 100%;
+      padding-top: 15px;
+      justify-content: center;
+
+      .text-payment {
+        margin: 0 0 0 10px;
+      }
+    }
+
+    .direct,
+    .bank {
+      background-color: #1497f6;
+      border: none;
+    }
+
+    .direct {
+      margin-bottom: 10px;
+    }
+  }
+}
