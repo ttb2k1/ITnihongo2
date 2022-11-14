@@ -1,6 +1,6 @@
 import React from "react";
 import './Account-page.css';
-import Header from "../../components/Header-Management-page/Header";
+import Header from "../../Components/Header-Management-page/Header";
 import TableAccount from "./components/TableAccount/TableAccount";
 const AccountPage = () => {
     return (

@@ -1,5 +1,5 @@
 import React from 'react';
-import Header from "../../components/Header_home-page/Header-home-page";
+import Header from "../../Components/Header_home-page/Header-home-page";
 import './Home-page.scss'
 import PedalBikeIcon from '@mui/icons-material/PedalBike';
 

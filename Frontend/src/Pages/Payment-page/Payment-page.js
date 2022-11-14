@@ -1,6 +1,6 @@
 import React from 'react';
 import './Payment-page.scss';
-import HeaderHomePage from "../../components/Header_home-page/Header-home-page";
+import HeaderHomePage from "../../Components/Header_home-page/Header-home-page";
 import HandshakeIcon from '@mui/icons-material/Handshake';
 import AccountBalanceIcon from '@mui/icons-material/AccountBalance';
 

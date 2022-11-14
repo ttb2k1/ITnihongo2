@@ -1,6 +1,6 @@
 import React from "react";
 import './Management-page.css';
-import Header from "../../components/Header-Management-page/Header";
+import Header from "../../Components/Header-Management-page/Header";
 import Table from "./components/Table/Table"
 import WebcamCapture from "./components/Webcam/Webcam";
 import CarInfo from "./components/CarInfo/CarInfo";
