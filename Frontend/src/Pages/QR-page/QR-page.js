@@ -1,5 +1,5 @@
 import React from 'react'
-import HeaderHomePage from "../../components/Header_home-page/Header-home-page";
+import HeaderHomePage from "../../Components/Header_home-page/Header-home-page";
 import './QR-page.scss';
 
 const QRPage = () => {
