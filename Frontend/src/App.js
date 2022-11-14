@@ -2,13 +2,13 @@ import logo from './logo.svg';
 import './App.css';
 import ReactDOM from "react-dom/client";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import ManagementPage from "./Page/Management-page/Management-page";
-import TopPage from "./Page/Top-page/Top-page";
-import LoginPage from "./Page/Login_page/Login_page";
-import AccountPage from "./Page/Account-management-page/Account-page";
-import HomePage from "./Page/Home-page/Home-page";
-import PaymentPage from "./Page/Payment-page/Payment-page";
-import QRPage from "./Page/QR-page/QR-page";
+import ManagementPage from "./Pages/Management-page/Management-page";
+import TopPage from "./Pages/Top-page/Top-page";
+import LoginPage from "./Pages/Login_page/Login_page";
+import AccountPage from "./Pages/Account-management-page/Account-page";
+import HomePage from "./Pages/Home-page/Home-page";
+import PaymentPage from "./Pages/Payment-page/Payment-page";
+import QRPage from "./Pages/QR-page/QR-page";
 function App() {
   return (
       <BrowserRouter>
