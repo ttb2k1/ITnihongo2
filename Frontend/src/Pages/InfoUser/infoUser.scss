@@ -1,0 +1,135 @@
+.bg-info-user{
+    padding-top: 5rem;
+    height: 100%;
+    background-color: #C5DFDF;
+    max-height: 1000px;
+    .bg-container{
+        height: 100%;
+        display: grid;
+        margin-left: auto;
+        margin-right: auto;
+        width: 90%;
+        grid-template-columns: 30% auto;
+        .bg-info{
+            grid-column: 1 / 2;
+            padding: 2rem 15px 2rem 2rem;
+            display: grid;
+            grid-template-rows: 55% auto;
+            row-gap: 15px;
+            .top-info{
+                grid-row: 1 / 2;
+                background-color: #ebebeb;
+                border-radius: 10px;
+                padding: 40px 40px;
+                display: grid;
+                grid-template-rows: 80% auto;
+                .ava-user{
+                    border-radius: 50%;
+                    display: flex;
+                    margin-left: auto;
+                    margin-right: auto;
+                    height: 100%;
+                    width: auto;
+                    overflow: hidden;
+                    img{
+                        height: 100%;
+                        width: 100%;
+                        object-fit: cover;
+                        transition: 2s ease;
+                    }
+                
+                    &:hover{
+                        img{
+                            transform: scale(1.1);
+                        }
+                    }
+                }
+                .btn-info{
+                    margin-top: 10px;
+                    padding: 10px;
+                    display: grid;
+                    grid-template-columns: 47% 47%;
+                    justify-content: space-between;
+                    .edit-user{
+                        margin-top: auto;
+                        margin-bottom: auto;
+                        text-align: center;
+                        max-height: 40px;
+                        padding: 5px;
+                        grid-column: 1 / 2;
+                        color: #073091;
+                        border: 1px solid;
+                        border-radius: 50px;
+                        &:hover{
+                            cursor: pointer;
+                            transition: 0.5s all;
+                            background-color: #073091;
+                            color: #C5DFDF;
+                            border: 1px solid;
+                        }
+                    }
+                    .change-password{
+                        overflow:hidden;
+                        margin-top: auto;
+                        margin-bottom: auto;
+                        text-align: center;
+                        border: 1px solid;
+                        max-height: 40px;
+                        color: #073091;
+                        padding: 5px;
+                        border-radius: 50px;
+                        &:hover{
+                            cursor: pointer;
+                            transition: 0.5s all;
+                            background-color: #073091;
+                            color: #C5DFDF;
+                            border: 1px solid;
+                        }
+                    }
+                }
+            }
+            .body-info{
+                height: auto;
+                background-color: #ebebeb;
+                border-radius: 10px;
+                padding: 40px 40px 0 40px;
+                .info-line{
+                    margin-bottom: 15px;
+                    display: grid;
+                    grid-template-columns: 47% 47%;
+                    column-gap: 20px;
+                    .title{
+                        white-space: nowrap;
+                        overflow:hidden;
+                        color: #073091;
+                        font-weight: bold;
+                        .icon{
+                            position: relative;
+                            top:3px;
+                            margin-right: 7px;
+                        }
+                    }
+                    .data{
+                        width: 100%;
+                        overflow:hidden;
+                        text-align: right;
+                    }
+                }
+            }
+        }
+        .bg-history{
+            padding: 2rem 2rem 2rem 0;
+            .history-container{
+                height: 100%;
+                border-radius: 10px;
+                background-color: #ebebeb;
+                padding: 40px;
+                .title-history{
+                    font-size: 27px;
+                    font-weight: bold;
+                    color: #073091;
+                }
+            }
+        }
+    }
+}

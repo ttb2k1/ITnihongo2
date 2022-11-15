@@ -9,6 +9,7 @@ import AccountPage from "./Pages/Account-management-page/Account-page";
 import HomePage from "./Pages/Home-page/Home-page";
 import PaymentPage from "./Pages/Payment-page/Payment-page";
 import QRPage from "./Pages/QR-page/QR-page";
+import InfoUser from './Pages/InfoUser/InfoUser';
 function App() {
   return (
       <BrowserRouter>
@@ -19,6 +20,7 @@ function App() {
               <Route exact path="homepage" element={<HomePage />} />
               <Route exact path="payment" element={<PaymentPage />} />
               <Route exact path="ticket" element={<QRPage />} />
+              <Route exact path="info" element={<InfoUser />} />
               <Route exact path="management" element={<ManagementPage />} />
               <Route exact path="management/account" element={<AccountPage/>} />
           </Route>
