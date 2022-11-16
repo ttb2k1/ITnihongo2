@@ -1,0 +1,223 @@
+:root{
+    --PrimaryColor: hsl(199, 100%, 33%);
+    --SecondaryColor: hsl(187, 85%, 43%);
+    --gradientColor: linear-gradient(to right, hsl(187, 85%, 43%), hsl(199, 100%, 33%));
+}
+.editInfo{
+    position: absolute;
+    transition: .5s ease-in-out;
+    width: 100%;
+	height: 100%;
+	background-color: rgba(56, 56, 56, 0.7);
+    z-index: 1040;
+    top: -500rem;
+    .modal-editInfo{
+        position: absolute;
+        background: #d7f1f1;
+        height: max-content;
+        width: 80%;
+        border-radius: 1rem;
+        -webkit-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+        top: 50%;
+        left: 50%;
+        padding: 1rem;
+        .close-btn{
+            display: inline-block;
+            width: 100%;
+            .cls-editInfo{
+                float: right;
+                color: var(--PrimaryColor);
+                top: 1rem;
+                right: 1rem;
+                &:hover{
+                    color: #e61818;
+                    cursor: pointer;
+                }
+            }
+        }
+        .text-box{
+            position: relative;
+            margin-bottom: 20px;
+            .gender-btn{
+                padding-right: 10px;
+                display: flex;
+                justify-content: center;
+                .radio-btn{
+                    position: relative;
+                    top: -1px;
+                    width: 10%;
+                }
+            }
+            .input100{
+                font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+                font-size: 17px;
+                line-height: 1.5;
+                color: #666;
+                display: block;
+                width: 80%;
+                background: #bad1ee;
+                height: 50px;
+                border-radius: 25px;
+                padding: 0 30px 0 62px;
+                margin-left: 35px;
+                &:hover{
+                    transform: scale(1.05);
+                }
+                &::placeholder{
+                    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+                    color: var(--PrimaryColor);
+                }
+                &:focus{
+                    box-shadow: 3px 3px var(--PrimaryColor);
+                    transition: all .4s;
+                }
+            }
+            .focus-input100{
+                display: block;
+                position: absolute;
+                border-radius: 25px;
+                bottom: 0;
+                left: 0;
+                z-index: -1;
+                width: 100%;
+                height: 100%;
+                box-shadow: 0 0;
+                color: rgba(87,184,70,.8);
+            }
+            .symbol-input100 {
+                font-size: 15px;
+                margin-left: 25px;
+                display: flex;
+                align-items: center;
+                position: absolute;
+                border-radius: 25px;
+                bottom: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                padding-left: 35px;
+                pointer-events: none;
+                color: #666;
+                color: var(--PrimaryColor);
+            }
+            input{
+            outline: none;
+            border: none;
+            }
+        }
+        .text-box:hover .symbol-input100{
+            transform: scale(1.05);
+        }
+        .container-login100{
+            width: 60%;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding-top: 10px;
+            margin-left: auto;
+            margin-right: auto;
+            button{
+                outline: none;
+                border: none;
+            }
+            .login100-form-btn{
+                font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+                font-size: 15px;
+                line-height: 1.5;
+                color: #fff;
+                text-transform: uppercase;
+                width: 100%;
+                height: 50px;
+                border-radius: 25px;
+                background: var(--gradientColor);
+                display: -webkit-box;
+                display: -webkit-flex;
+                display: -moz-box;
+                display: -ms-flexbox;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                padding: 0 25px;
+                -webkit-transition: all .4s;
+                -o-transition: all .4s;
+                -moz-transition: all .4s;
+                transition: all .4s;
+                &:hover{
+                    cursor: pointer;
+                    background: var(--PrimaryColor);
+                }
+            }
+        }
+    }
+}
+.activeEditInfo{
+    position: fixed;
+    top: 0;
+}
+
+
+@media screen and (max-width: 400px){
+    .editInfo{
+        .modal-editInfo{
+            .text-box{
+                .input100{
+                    padding: 0 20px;
+                    margin-left: auto;
+                    margin-right: auto;
+                    width: 90%;
+                }
+                .symbol-input100{
+                    display: none;
+                }
+            }
+        }
+    }
+}
+@media screen and (max-width: 500px){
+    .editInfo{
+        .modal-editInfo{
+            .text-box{
+                .input100{
+                    padding: 0 20px;
+                }
+                .symbol-input100{
+                    display: none;
+                }
+            }
+        }
+    }
+}
+
+
+@media screen and (min-width: 500px){
+    .editInfo{
+        .modal-editInfo{
+            width: 70%;
+        }
+    }
+}
+
+@media screen and (min-width: 769px){
+    .editInfo{
+        .modal-editInfo{
+            width: 55%;
+        }
+    }
+}
+
+@media screen and (min-width: 960px){
+    .editInfo{
+        .modal-editInfo{
+            width: 40%;
+        }
+    }
+}
+
+@media screen and (min-width: 1240px){
+    .editInfo{
+        .modal-editInfo{
+            width: 30%;
+        }
+    }
+}
