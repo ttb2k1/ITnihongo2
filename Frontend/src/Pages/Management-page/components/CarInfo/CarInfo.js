@@ -3,9 +3,8 @@ import './CarInfo.css';
 const CarInfo = () => {
     const [name, setName] = useState("");
     return (
-        <>
-            <label className="title-car-info"> CAR INFORMATION </label>
             <form className="car-info-form">
+                <div className="title-car-info"> CAR INFORMATION </div>
                 <div className="car-name">
                     <label className="title-car-name"> Car name </label>
                     <input
@@ -39,7 +38,6 @@ const CarInfo = () => {
                     />
                 </div>
             </form>
-        </>
     )
 }
 export default CarInfo;

@@ -1,27 +1,16 @@
-.title-car-info{
-    display: flex;
-    justify-content: center;
-    background-color: #29335c;
-    color: white;
-    max-width: 800px;
-    min-width: fit-content;
-    width: 20%;
-    padding: 5px 0 5px 0px;
-    justify-content: center;
-    margin: 0 auto;
-    border-radius: 10px;
-}
 .car-info-form{
-    justify-content: center;
-    margin: 10px auto 10px;
+    margin: 10px 20px 0 10px;
     border: 3px solid #29335c;
     padding: 5px 5px 5px 5px;
-    max-width: 800px;
     border-radius: 5px ;
+    height: fit-content;
+    max-height: 100vh;
+    overflow: auto;
+    width: 60%;
+    justify-content: center;
 }
 .car-name{
     display: flex;
-    max-width: 800px;
     justify-content: space-between;
     margin: 0 auto;
     width: 100%;
@@ -30,7 +19,6 @@
 }
 .car-number{
     display: flex;
-    max-width: 800px;
     justify-content: space-between;
     margin: 5px auto;
     width: 100%;
@@ -39,7 +27,6 @@
 }
 .car-owner{
     display: flex;
-    max-width: 800px;
     justify-content: space-between;
     margin: 5px auto;
     width: 100%;
@@ -48,7 +35,6 @@
 }
 .time-parking{
     display: flex;
-    max-width: 800px;
     justify-content: space-between;
     margin: 5px auto;
     width: 100%;
@@ -65,4 +51,7 @@
 }
 .title-time-parking{
     width: 20%;
+}
+.title-car-info{
+    margin-top: 0;
 }

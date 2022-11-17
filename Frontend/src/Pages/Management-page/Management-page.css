@@ -1,6 +1,9 @@
 @import url("https://fonts.googleapis.com/css2?family=Titillium+Web:wght@300;400;700&display=swap");
-.Mainpage{
+.main-page{
     background-color: #c5d7e8;
+    display: flex !important;
+    justify-content: flex-start!important;
+    max-height: available;
 }
 * {
     padding: 0;
