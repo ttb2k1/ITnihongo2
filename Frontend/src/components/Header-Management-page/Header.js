@@ -13,9 +13,9 @@ const Header = () => {
             <header>
                 <h3>LOGO</h3>
                 <nav ref={navRef} className="menu-bar">
-                    <a href="/DownFile/ITn/ITNihongo2/routes#">CHECK</a>
-                    <a href="/DownFile/ITn/ITNihongo2/routes#">ACCOUNTS</a>
-                    <a href="/DownFile/ITn/ITNihongo2/routes#">CARS</a>
+                    <a href="/management/">CHECK</a>
+                    <a href="/management/account">ACCOUNTS</a>
+                    <a href="/management/history">HISTORY</a>
                     <button
                         className="nav-btn nav-close-btn"
                         onClick={showNavbar}>

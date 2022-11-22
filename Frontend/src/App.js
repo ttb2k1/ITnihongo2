@@ -10,6 +10,7 @@ import HomePage from "./Pages/Home-page/Home-page";
 import PaymentPage from "./Pages/Payment-page/Payment-page";
 import QRPage from "./Pages/QR-page/QR-page";
 import InfoUser from './Pages/InfoUser/InfoUser';
+import HistoryPage from "./Pages/History-management-page/History-management-page";
 function App() {
   return (
       <BrowserRouter>
@@ -23,6 +24,7 @@ function App() {
               <Route exact path="info" element={<InfoUser />} />
               <Route exact path="management" element={<ManagementPage />} />
               <Route exact path="management/account" element={<AccountPage/>} />
+              <Route exact path="management/history" element={<HistoryPage/>} />
           </Route>
         </Routes>
       </BrowserRouter>
