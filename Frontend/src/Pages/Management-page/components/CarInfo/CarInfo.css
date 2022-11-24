@@ -1,0 +1,57 @@
+.car-info-form{
+    margin: 10px 20px 0 10px;
+    border: 3px solid #29335c;
+    padding: 5px 5px 5px 5px;
+    border-radius: 5px ;
+    height: fit-content;
+    max-height: 100vh;
+    overflow: auto;
+    width: 60%;
+    justify-content: center;
+}
+.car-name{
+    display: flex;
+    justify-content: space-between;
+    margin: 0 auto;
+    width: 100%;
+    height: fit-content;
+    border-bottom: 2px solid #6e6e6e;
+}
+.car-number{
+    display: flex;
+    justify-content: space-between;
+    margin: 5px auto;
+    width: 100%;
+    height: fit-content;
+    border-bottom: 2px solid #6e6e6e;
+}
+.car-owner{
+    display: flex;
+    justify-content: space-between;
+    margin: 5px auto;
+    width: 100%;
+    height: fit-content;
+    border-bottom: 2px solid #6e6e6e;
+}
+.time-parking{
+    display: flex;
+    justify-content: space-between;
+    margin: 5px auto;
+    width: 100%;
+    height: fit-content;
+}
+.title-car-name{
+    width: 20%;
+}
+.title-car-number{
+    width: 20%;
+}
+.title-car-owner{
+    width: 20%;
+}
+.title-time-parking{
+    width: 20%;
+}
+.title-car-info{
+    margin-top: 0;
+}
