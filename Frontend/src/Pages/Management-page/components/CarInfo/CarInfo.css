@@ -1,12 +1,13 @@
 .car-info-form{
-    margin: 10px 20px 0 10px;
+    margin: 10px 20px 10px 10px;
     border: 3px solid #29335c;
     padding: 5px 5px 5px 5px;
     border-radius: 5px ;
-    height: fit-content;
+    height: auto;
     max-height: 100vh;
     overflow: auto;
     width: 60%;
+    max-width: 600px;
     justify-content: center;
 }
 .car-name{
@@ -54,4 +55,13 @@
 }
 .title-car-info{
     margin-top: 0;
+}
+.QR-status{
+    height: 30%;
+    width: 80%;
+    justify-content: center;
+    margin: 10px auto;
+    background-color: #b5e0b5;
+    vertical-align: middle !important;
+    padding-top: 12%;
 }

@@ -1,0 +1,17 @@
+.QR_screen{
+    width: 75%;
+    height: 100%;
+}
+.QR{
+    height: auto !important;
+    max-height: 100% !important;
+    width: 100% !important;
+    margin: 10px 10px 10px 10px;
+    padding-right: 10px;
+}
+.main-page{
+    background-color: #c5d7e8;
+    display: flex !important;
+    justify-content: flex-start!important;
+    max-height: available;
+}

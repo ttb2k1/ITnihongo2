@@ -11,6 +11,7 @@ import PaymentPage from "./Pages/Payment-page/Payment-page";
 import QRPage from "./Pages/QR-page/QR-page";
 import InfoUser from './Pages/InfoUser/InfoUser';
 import HistoryPage from "./Pages/History-management-page/History-management-page";
+import QRScanner from "./Pages/Management-page/components/QRScanner/QRScanner";
 function App() {
   return (
       <BrowserRouter>
@@ -25,6 +26,7 @@ function App() {
               <Route exact path="management" element={<ManagementPage />} />
               <Route exact path="management/account" element={<AccountPage/>} />
               <Route exact path="management/history" element={<HistoryPage/>} />
+              <Route exact path="management/test" element={<QRScanner/>} />
           </Route>
         </Routes>
       </BrowserRouter>
