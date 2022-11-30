@@ -1,4 +1,4 @@
-import React,{useState} from 'react'
+import React,{useState,useEffect} from 'react'
 import Header from '../../Components/Header_home-page/Header-home-page'
 import './infoUser.scss'
 import {FaUserCircle} from 'react-icons/fa'
@@ -7,6 +7,7 @@ import {BsTelephoneFill} from 'react-icons/bs'
 import HistoryItem from './HistoryItem/HistoryItem'
 import EditForm from './EditForm/EditForm'
 import ChangePWForm from './ChangePWForm/ChangePWForm'
+import axios from 'axios'
 
 const InfoUser = () => {
     const handleCopyTextFromParagraph = (paragraph) => {
@@ -15,7 +16,26 @@ const InfoUser = () => {
     }
     const [editInfo, setEditInfo]= useState('editInfo')
     const [changePW, setChangePW]= useState('changePW')
+    const [userdata, setUserdata]= useState(null)
    
+    useEffect(()=>{
+        var config = {
+            method: 'post',
+            url: 'http://localhost:3005/user/getuserbyemail',
+            headers: {
+                'Content-Type': 'application/json',
+            }, 
+            data:{
+                email: "abc@gmail.com"
+            }
+          };
+        const getData = async () => {
+            await axios(config).then((res)=>{
+                setUserdata(res.data)
+            });
+        }
+        getData()
+    },[])
     const showEditInfo = () => {
         setEditInfo('editInfo activeEditInfo')
     }
@@ -28,7 +48,7 @@ const InfoUser = () => {
     const removeChangePW = () => {
         setChangePW('changePW')
     }
-
+    if(userdata){
     return (
       <body>
         <Header/>
@@ -47,34 +67,34 @@ const InfoUser = () => {
                     <div className="body-info">
                         <div className="info-line">
                             <div className="title"><FaUserCircle className='icon'/>Username</div>
-                            <div className="data">HoMinhHieu</div>
+                            <div className="data">{userdata.data.name}</div>
                         </div>
                         <div className="info-line">
                             <div className="title"><MdEmail className='icon'/>Email</div>
-                            <div className="data" onClick={(e) => handleCopyTextFromParagraph("hominhhieu@gmail.com")} defaultValue="1">hominhhieu@gmail.com</div>
+                            <div className="data" onClick={(e) => handleCopyTextFromParagraph(userdata.data.email)} defaultValue="1">{userdata.data.email}</div>
                         </div>
                         <div className="info-line">
                             <div className="title"><BsTelephoneFill className='icon'/>Phone</div>
-                            <div className="data" onClick={(e) => handleCopyTextFromParagraph("0928123456")}>0928123456</div>
+                            <div className="data" onClick={(e) => handleCopyTextFromParagraph(userdata.data.phone)}>{userdata.data.phone}</div>
                         </div>
                         <div className="info-line">
                             <div className="title"><MdVerifiedUser className='icon'/>Gender</div>
-                            <div className="data">Male</div>
+                            <div className="data">{userdata.data.sex==1?"Male":"Female"}</div>
                         </div>
                     </div>
                 </div>
                 <div className="bg-history">
                     <div className="history-container">
                         <div className="title-history">History</div>
-                        <HistoryItem />
+                        <HistoryItem idUser={userdata.data.user_id} />
                     </div>
                 </div>
             </div>
         </div>
-        <EditForm editInfo={editInfo} removeEditInfo={removeEditInfo}/>
-        <ChangePWForm changePW={changePW} removeChangePW={removeChangePW}/>
+        <EditForm editInfo={editInfo} removeEditInfo={removeEditInfo} datauser={userdata}/>
+        <ChangePWForm changePW={changePW} removeChangePW={removeChangePW} idUser={userdata.data.user_id}/>
       </body>
     )
-}
+}}
 
 export default InfoUser
