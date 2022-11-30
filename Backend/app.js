@@ -1,5 +1,3 @@
-<<<<<<< Updated upstream
-=======
 var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
@@ -12,17 +10,16 @@ var flash = require('connect-flash');
 var cors = require('cors')
 require("dotenv").config()
 
+var hist_route = require('./routes/hist_route');
 var user_route = require('./routes/user_route');
 var account_route = require('./routes/account_route');
 var session_connection = require("./config/session_database")
 
-
 var app = express();
-
 app.use(
   cors({
     credentials: true,
-    origin: ["http://localhost:3000", "http://localhost:3006"],
+    origin: ["http://localhost:3006"] 
   })
 );
 
@@ -61,10 +58,9 @@ app.use(passport.initialize())
 app.use(passport.session())
 require('./config/passport')
 
-
+app.use('/history', hist_route);
 app.use('/user', user_route);
 app.use('/account', account_route);
 
 
 module.exports = app;
->>>>>>> Stashed changes

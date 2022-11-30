@@ -26,7 +26,7 @@ const InfoUser = () => {
                 'Content-Type': 'application/json',
             }, 
             data:{
-                email: "hominhhieu@gmail.com"
+                email: "abc@gmail.com"
             }
           };
         const getData = async () => {
@@ -86,7 +86,7 @@ const InfoUser = () => {
                 <div className="bg-history">
                     <div className="history-container">
                         <div className="title-history">History</div>
-                        <HistoryItem />
+                        <HistoryItem idUser={userdata.data.user_id} />
                     </div>
                 </div>
             </div>
