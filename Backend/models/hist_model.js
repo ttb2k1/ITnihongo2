@@ -71,7 +71,7 @@ hist_model.getVehByHist = async (userID) =>{
     var results = await query(sql_query)
     if(results.length > 0)
     {
-      const json = {success: true, data: results}
+      const json = {success: true, data: results[0]}
       const jsonstr = JSON.stringify(json)
       return jsonstr
     }
