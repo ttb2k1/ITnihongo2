@@ -1,8 +1,8 @@
 import React, {useState} from "react";
 import './Management-page.css';
 import Header from "../../Components/Header-Management-page/Header";
-import WebcamCapture from "./components/Webcam/Webcam";
 import CarInfo from "./components/CarInfo/CarInfo";
+import QRScanner from "./components/QRScanner/QRScanner";
 const ManagementPage = () => {
     const [rotate ,setRotate] = useState(false);
     console.log("retate situatus : ",rotate);
@@ -10,10 +10,7 @@ const ManagementPage = () => {
     return (
         <div>
             <Header/>
-            <div className="main-page">
-                <WebcamCapture/>
-                <CarInfo/>
-            </div>
+            <QRScanner/>
         </div>
     )
 }

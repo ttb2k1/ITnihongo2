@@ -1,7 +1,12 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import './CarInfo.css';
-const CarInfo = () => {
+const CarInfo = (props) => {
     const [name, setName] = useState("");
+    const [status,setStatus] = useState('0');
+    const {key} = props;
+    useEffect(()=>{
+        console.log(key);
+    },[status]);
     return (
             <form className="car-info-form">
                 <div className="title-car-info"> CAR INFORMATION </div>
@@ -37,6 +42,7 @@ const CarInfo = () => {
                         onChange={(e) => setName(e.target.value)}
                     />
                 </div>
+                <label className="QR-status"> QR code </label>
             </form>
     )
 }
