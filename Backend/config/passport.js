@@ -44,6 +44,7 @@ let google_strategy = new GoogleStrategy({
   async function(accessToken, refreshToken, profile, cb){
     try
     {
+      console.log('Profile in google_strategy: ', profile)
       email = profile.emails[0].value
       jsonstr = await account_controller.getUserByEmail(email)
       json = JSON.parse(jsonstr)
