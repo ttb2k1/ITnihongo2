@@ -11,7 +11,6 @@ require("dotenv").config()
 
 var user_route = require('./routes/user_route')
 var account_route = require('./routes/account_route')
-var history_route = require('./routes/history_route')
 var session_connection = require("./config/session_database")
 
 
@@ -56,7 +55,5 @@ require('./config/passport')
 
 app.use('/user', user_route)
 app.use('/account', account_route)
-app.use('/history', history_route)
-
 
 module.exports = app;
