@@ -6,9 +6,15 @@ body {
 .App{
     margin-top: 15px;
     width: 100%;
+    display: grid !important;
+    height: fit-content;
+    max-height: 100vh;
+    overflow: auto;
 }
 .table-wrapper {
     width: 700px;
+    height: 200px;
+    overflow: auto;
     margin: 30px auto;
     background: #fff;
     padding: 20px;
