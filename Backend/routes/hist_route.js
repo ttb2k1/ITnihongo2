@@ -7,5 +7,4 @@ router.get("/list", hist_controller.getList)
 router.get("/detail", hist_controller.historyDetail)
 router.post("/detailVeh", hist_controller.vehDetail)
 
-
 module.exports = router
