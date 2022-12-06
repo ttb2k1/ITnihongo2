@@ -32,6 +32,9 @@ const InfoUser = ({emailUser}) => {
             }, 
             data:{
                 email: emailUser
+<<<<<<< HEAD
+>>>>>>> 37205f6a8f2c5d75004f2507796773656a5ab819
+=======
 >>>>>>> 37205f6a8f2c5d75004f2507796773656a5ab819
             }
         };
