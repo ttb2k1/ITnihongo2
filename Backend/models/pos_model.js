@@ -179,18 +179,30 @@ pos_model.reserved = async (data) => {
       if(results.affectedRows>0)
       {
         var sql = "UPDATE positions SET user_id = ?, vehicle_id = ?, QR_code = ?, status='1', position_active=1 WHERE pos_id = ?"
-        data_list = [data.user_id, data.vehicle_id, data.ticket, results[0]]
+        data_list = [data.user_id, data.vehicle_id, data.ticket, results]
         result = await query(sql,data_list)
         if(result.affectedRows>0)
         {
-          var sql = "select * from users where user_id = ?"
-          data_list = [data.user_id]
+          var sql = "INSERT INTO histories (user_id, pos_id) VALUES ?"
+          data_list = [data.user_id, results]
           res = await query(sql,data_list)
           if(res.affectedRows>0)
           {
-            const json = {success: true, data: res}
-            const jsonstr = JSON.stringify(json)
-            return jsonstr
+            var sql = "select * from users where user_id = ?"
+            data_list = [data.user_id]
+            res = await query(sql,data_list)
+            if(res.affectedRows>0)
+            {
+              const json = {success: true, data: res}
+              const jsonstr = JSON.stringify(json)
+              return jsonstr
+            }
+            else
+            {
+              const json = {success: false, data: res}
+              const jsonstr = JSON.stringify(json)
+              return jsonstr
+            }
           }
           else
           {
@@ -230,9 +242,20 @@ pos_model.checkIn = async(data) => {
       results = await query(sql,data_list)
       if(results.affectedRows>0)
       {
-        const json = {success: true, data: results}
-        const jsonstr = JSON.stringify(json)
-        return jsonstr
+        var sql = "UPDATE histories SET check_in = Now() WHERE user_id = ?"
+        result = await query(sql,data_list)
+        if(result.affectedRows>0)
+        {
+          const json = {success: true, data: result}
+          const jsonstr = JSON.stringify(json)
+          return jsonstr
+        }
+        else
+        {
+          const json = {success: false, data: result}
+          const jsonstr = JSON.stringify(json)
+          return jsonstr
+        }
       }
       else
       {
@@ -258,6 +281,45 @@ pos_model.checkOut = async(data) => {
       results = await query(sql,data_list)
       if(results.affectedRows>0)
       {
+        var sql = "UPDATE histories SET check_out = Now() WHERE user_id = ?"
+        result = await query(sql,data_list)
+        if(result.affectedRows>0)
+        {
+          
+          const json = {success: true, data: result}
+          const jsonstr = JSON.stringify(json)
+          return jsonstr
+        }
+        else
+        {
+          const json = {success: false, data: result}
+          const jsonstr = JSON.stringify(json)
+          return jsonstr
+        }
+      }
+      else
+      {
+        const json = {success: false, data: results}
+        const jsonstr = JSON.stringify(json)
+        return jsonstr
+      }
+    }
+  catch(err)
+  {
+    console.log('position_model.checkOut has error: ' + err.message)
+    const json = {success: false, data: err.message}
+    const jsonstr = JSON.stringify(json)
+    return jsonstr
+  }
+}
+
+pos_model.getEmpty = async() => {
+  try
+    {
+      var sql = "select position_active, count(*) from positions"
+      results = await query(sql)
+      if(results.affectedRows>0)
+      {
         const json = {success: true, data: results}
         const jsonstr = JSON.stringify(json)
         return jsonstr
@@ -271,7 +333,7 @@ pos_model.checkOut = async(data) => {
     }
   catch(err)
   {
-    console.log('position_model.checkOut has error: ' + err.message)
+    console.log('position_model.getEmpty has error: ' + err.message)
     const json = {success: false, data: err.message}
     const jsonstr = JSON.stringify(json)
     return jsonstr

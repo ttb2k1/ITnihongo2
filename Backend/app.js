@@ -7,6 +7,7 @@ var session = require("express-session")
 var MySQLStore = require("express-mysql-session")(session)
 var passport = require("passport")
 var flash = require('connect-flash');
+var cors = require('cors')
 require("dotenv").config()
 
 var hist_route = require('./routes/hist_route');
@@ -68,7 +69,6 @@ app.use(cookieParser());
 app.use(passport.initialize())
 app.use(passport.session())
 require('./config/passport')
-
 
 app.use('/history', hist_route);
 app.use('/user', user_route);

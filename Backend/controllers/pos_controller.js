@@ -133,3 +133,16 @@ pos_controller.checkOut = async (req, res) => {
     res.json({success: false, data: err.message})
   }
 }
+
+pos_controller.getEmpty = async (req, res) => {
+  try{
+    const jsonstr = await pos_model.getEmpty()
+    const json = JSON.parse(jsonstr)
+    res.json(json)
+  }
+  catch(err)
+  {
+    console.log('position_controller.getEmpty has error: ' + err.message)
+    res.json({success: false, data: err.message})
+  }
+}

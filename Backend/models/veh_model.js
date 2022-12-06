@@ -1,6 +1,7 @@
 var veh_model = module.exports
 const conn = require("../config/database")
 const util = require("util")
+const uuid = require("uuid")
 const query = util.promisify(conn.query).bind(conn)
 
 
@@ -64,7 +65,7 @@ veh_model.insertVeh = async (veh) =>{
   try
   {
     var sql = 'INSERT INTO vehicles (vehicle_id, vehicle_type, vehicle_plates, vehicle_color) VALUES ?'
-    new_veh = [veh.id, veh.type, veh.plate, veh.color]
+    new_veh = [uuid.v4(), veh.type, veh.plate, veh.color]
     result = await query(sql,new_veh)
     if(result.affectedRows>0)
     {
