@@ -7,7 +7,6 @@ var session = require('express-session');
 var MySQLStore = require('express-mysql-session')(session);
 var passport = require('passport');
 var flash = require('connect-flash');
-var cors = require('cors');
 require('dotenv').config();
 
 var hist_route = require('./routes/hist_route');

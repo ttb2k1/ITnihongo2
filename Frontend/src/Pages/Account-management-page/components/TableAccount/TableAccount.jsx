@@ -29,7 +29,7 @@ const TableAccount = () => {
           <th>Sexual</th>
           <th>Phone number</th>
         </tr>
-        {data.map((item, index) => (
+        {data?.map((item, index) => (
           <tr key={index}>
             <td>{item.name}</td>
             <td>{item.email}</td>
