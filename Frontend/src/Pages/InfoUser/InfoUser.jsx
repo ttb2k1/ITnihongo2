@@ -9,7 +9,7 @@ import EditForm from './EditForm/EditForm'
 import ChangePWForm from './ChangePWForm/ChangePWForm'
 import axios from 'axios'
 
-const InfoUser = () => {
+const InfoUser = ({emailUser}) => {
     const handleCopyTextFromParagraph = (paragraph) => {
         const cb = navigator.clipboard;
         cb.writeText(paragraph).then(() => alert(`"${paragraph}" copied in clipboard`));
@@ -26,7 +26,7 @@ const InfoUser = () => {
                 'Content-Type': 'application/json',
             }, 
             data:{
-                email: "abc@gmail.com"
+                email: emailUser
             }
           };
         const getData = async () => {

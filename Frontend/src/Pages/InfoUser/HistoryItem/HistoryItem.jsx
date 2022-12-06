@@ -11,11 +11,10 @@ const HistoryItem = ({idUser}) => {
       })
     },[])
     if(data){
-      console.log(data)
     return (
           <div className='bg-histories'>
               {React.Children.toArray(
-                  data.data.map(d =>(
+                  data?.data?.map(d =>(
                       <div className="history-item" style={d.check_out==""?{border:"3px red solid"}:{border:"3px green solid"}}>
                           <div className="vehicle-img">
                               <FaMotorcycle size={60} color={d.vehicle_color} className='icon-moto' />
@@ -29,8 +28,9 @@ const HistoryItem = ({idUser}) => {
                       </div>
                   )))}
           </div>
-    )      
+    )} else{
+      return <div className='noData'>No history data!</div>
+    }
   }
-}
 
 export default HistoryItem
