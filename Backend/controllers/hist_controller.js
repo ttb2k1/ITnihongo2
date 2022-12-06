@@ -35,8 +35,8 @@ hist_controller.historyDetail = async (req,res)=>{
 hist_controller.vehDetail = async (req,res)=>{
   try
   {
-    const histID = req.body.user_id
-    const jsonstr = await hist_model.getVehByHist(histID)
+    const userID = req.body.user_id
+    const jsonstr = await hist_model.getVehByHist(userID)
     const json = JSON.parse(jsonstr)
     res.json(json)
   }
