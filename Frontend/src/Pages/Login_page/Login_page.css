@@ -5,7 +5,7 @@
     box-sizing: border-box;
 }
 
-login-page {
+.login-page {
     background: #f6f5f7;
     display: flex;
     justify-content: center;
@@ -70,7 +70,7 @@ button.ghost {
     border-color: #000000;
 }
 
-form {
+.form-input {
     background-color: #FFFFFF;
     display: flex;
     align-items: center;
@@ -161,8 +161,8 @@ input {
 
 .overlay {
     background: #52a8fc;
-    background: -webkit-linear-gradient(to right, #ffffff, #9db4f3);
-    background: linear-gradient(to right, #ffffff, #7facd5);
+    background: -webkit-linear-gradient(to right, #b7dafc, #9db4f3);
+    background: linear-gradient(to right, #b7dafc, #7facd5);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: 0 0;
