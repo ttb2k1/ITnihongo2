@@ -24,6 +24,10 @@ const TableAccount = () => {
     setData(data.filter(item => item.id != id));
   }
 
+  const handleAdd = () =>{
+    
+  }
+
   return (
     <div className='App'>
       <table className='tableAccount'>
@@ -73,7 +77,7 @@ const TableAccount = () => {
           required='required'
           placeholder='Enter a phone number'
         />
-        <button> Add </button>
+        <button onClick={handleAdd}> Add </button>
       </form>
     </div>
   );
