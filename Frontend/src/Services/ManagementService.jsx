@@ -21,7 +21,7 @@ class ManagementService {
     }
 
     deleteUser(idUser) {
-        return axios.delete(BOOK_API_BASE_URL + "user/deleteuser" + idUser);
+        return axios.delete(BOOK_API_BASE_URL + "user/deleteuser/" + idUser);
     }
 
     getListHistory() {

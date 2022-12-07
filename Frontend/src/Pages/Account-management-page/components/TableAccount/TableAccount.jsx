@@ -19,6 +19,10 @@ const TableAccount = () => {
     }
   }, [])
 
+  const handleDelete = (id) => {
+    ManagementService.deleteUser(id);
+    setData(data.filter(item => item.id != id));
+  }
 
   return (
     <div className='App'>
@@ -37,13 +41,13 @@ const TableAccount = () => {
             <td>{item.phone}</td>
             <td>
               <AiOutlineEdit />
-              <AiOutlineDelete />
+              <AiOutlineDelete onClick={() => handleDelete(item.user_id)} />
             </td>
           </tr>
         )
         )}
       </table>
-      {/* <h2>Add a new account : </h2>
+      <h2>Add a new account : </h2>
       <form>
         <input
           type='text'
@@ -70,7 +74,7 @@ const TableAccount = () => {
           placeholder='Enter a phone number'
         />
         <button> Add </button>
-      </form> */}
+      </form>
     </div>
   );
 };
