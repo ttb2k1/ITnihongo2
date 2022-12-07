@@ -5,7 +5,12 @@ const query = util.promisify(conn.query).bind(conn);
 
 hist_model.getList = async () => {
   try {
-    const sql_query = `select * from histories`;
+    const sql_query = `SELECT user.name, his.checkin_time, his.checkout_time, 
+    veh.vehicle_type, veh.vehicle_plates, veh.vehicle_color 
+    FROM histories as his INNER JOIN users_vehicles as rela 
+    ON rela.user_id = his.user_id INNER JOIN vehicles as veh 
+    ON veh.vehicle_id=rela.vehicle_id INNER JOIN users as user
+    ON user.user_id = his.user_id`;
     var results = await query(sql_query);
     if (results.length > 0) {
       const json = { success: true, data: results };
