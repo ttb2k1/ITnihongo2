@@ -5,7 +5,13 @@ import ManagementService from '../../../../Services/ManagementService';
 
 const TableAccount = () => {
   const [data, setData] = useState([])
-
+  const [formData, setFormData] = useState({
+    email: "",
+    password: "",
+    name: "",
+    sex: "",
+    phone: "",
+  })
 
   useEffect(() => {
     try {
@@ -24,8 +30,21 @@ const TableAccount = () => {
     setData(data.filter(item => item.id != id));
   }
 
-  const handleAdd = () =>{
-    
+  const handleAdd = () => {
+    try {
+      const newUser = {
+        email: formData.email,
+        password: formData.password,
+        name: formData.name,
+        sex: formData.sex,
+        phone: formData.phone,
+      }
+      ManagementService.addUser(newUser).then((res) => {
+        // setData()
+      })
+    } catch (error) {
+      console.log(error);
+    }
   }
 
   return (
