@@ -15,6 +15,7 @@ var account_route = require('./routes/account_route');
 var pos_route = require('./routes/pos_route');
 var veh_route = require('./routes/veh_route');
 var rela_route = require('./routes/rela_route');
+var user_veh_route = require('./routes/user_veh_route')
 var session_connection = require('./config/session_database');
 
 var app = express();
@@ -80,5 +81,6 @@ app.use('/account', account_route);
 app.use('/position', pos_route);
 app.use('/relative', rela_route);
 app.use('/vehicle', veh_route);
+app.use('/user_veh', user_veh_route)
 
 module.exports = app;

@@ -25,6 +25,33 @@ veh_model.getAllVeh = async () => {
   }
 };
 
+veh_model.getVehByVehId = async (vehicle_id) =>{
+  try
+  {
+    const sql_query = `SELECT * FROM vehicles WHERE vehicle_id = "` + vehicle_id + `"`
+    var results = await query(sql_query)
+    if(results.length > 0)
+    {
+      const json = {success: true, data: results[0]}
+      const jsonstr = JSON.stringify(json)
+      return jsonstr
+    }
+    else
+    {
+      const json = {success: false, data: 'Cannot find vehicle with id: ' + vehicle_id}
+      const jsonstr = JSON.stringify(json)
+      return jsonstr
+    }
+  }
+  catch(err)
+  {
+    console.log('veh_model.getVehByVehId has error: ' + err.message)
+    const json = {success: false, data: err.message}
+    const jsonstr = JSON.stringify(json)
+    return jsonstr
+  }
+}
+
 veh_model.getVehByType = async (type) => {
   try {
     const sql_query =
