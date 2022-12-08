@@ -34,6 +34,34 @@ user_model.getAllUsers = async () =>{
 }
 
 
+user_model.getUserByUserId = async (user_id) =>{
+  try
+  {
+    const sql_query = `SELECT * FROM users WHERE user_id = "` + user_id + `"` + `and user_active = 1`
+    var results = await query(sql_query)
+    if(results.length > 0)
+    {
+      const json = {success: true, data: results[0]}
+      const jsonstr = JSON.stringify(json)
+      return jsonstr
+    }
+    else
+    {
+      const json = {success: false, data: 'Cannot find user with user_id: ' + user_id}
+      const jsonstr = JSON.stringify(json)
+      return jsonstr
+    }
+  }
+  catch(err)
+  {
+    console.log('user_model.getUserByUserId has error: ' + err.message)
+    const json = {success: false, data: err.message}
+    const jsonstr = JSON.stringify(json)
+    return jsonstr
+  }
+}
+
+
 user_model.getUserByEmail = async (email) =>{
   try
   {

@@ -21,7 +21,6 @@ user_controller.getUserByEmail = async (req,res)=>{
   try
   {
     const email = req.body.email
-    console.log(res.body)
     const jsonstr = await user_model.getUserByEmail(email)
     const json = JSON.parse(jsonstr)
     res.json(json)
