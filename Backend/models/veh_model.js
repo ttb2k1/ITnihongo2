@@ -64,9 +64,9 @@ veh_model.getVehByType = async (type) =>{
 veh_model.insertVeh = async (veh) =>{
   try
   {
-    var sql = 'INSERT INTO vehicles (vehicle_id, vehicle_type, vehicle_plates, vehicle_color) VALUES ?'
-    new_veh = [uuid.v4(), veh.type, veh.plate, veh.color]
-    result = await query(sql,new_veh)
+    var sql = "INSERT INTO vehicles (vehicle_id, vehicle_type, vehicle_plates, vehicle_color, vehicle_active) VALUES ?"
+    var new_veh = [[uuid.v4(), veh.vehicle_type, veh.vehicle_plates, veh.vehicle_color, veh.vehicle_active]]
+    result = await query(sql,[new_veh])
     if(result.affectedRows>0)
     {
       const json = {success: true, data: result}
@@ -93,7 +93,7 @@ veh_model.insertVeh = async (veh) =>{
 veh_model.updateVeh = async (veh) =>{
   try
   {
-    var sql = "UPDATE vehicles SET vehicle_type = ?, vehicle_plates = ?, vehicle_color = ?, active = ? WHERE vehicle_id = ?"
+    var sql = "UPDATE vehicles SET vehicle_type = ?, vehicle_plates = ?, vehicle_color = ?, vehicle_active = ? WHERE vehicle_id = ?"
     new_veh = [veh.type, veh.plate, veh.color, veh.active, veh.id]
     result = await query(sql,new_veh)
     if(result.affectedRows>0)
@@ -104,7 +104,7 @@ veh_model.updateVeh = async (veh) =>{
     }
     else
     {
-      const json = {success: false, data: result}
+      const json = {success: false, data: "result"}
       const jsonstr = JSON.stringify(json)
       return jsonstr
     }
@@ -122,7 +122,7 @@ veh_model.updateVeh = async (veh) =>{
 veh_model.deleteVeh = async (veh) =>{
   try
   {
-    var sql = "UPDATE vehicles SET active = 0 WHERE vehicle_id = ?"
+    var sql = "UPDATE vehicles SET vehicle_active = 0 WHERE vehicle_id = ?"
     del = [veh.vehicle_id]
     result = await query(sql,del)
     if(results.affectedRows>0)

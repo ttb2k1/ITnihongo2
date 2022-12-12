@@ -37,7 +37,11 @@ user_model.getAllUsers = async () =>{
 user_model.getUserByEmail = async (email) =>{
   try
   {
-    const sql_query = `SELECT * FROM users WHERE email = "` + email + `"` + `and user_active = 1`
+    const sql_query = `SELECT user.*, veh.*
+    FROM users as user
+    INNER JOIN users_vehicles as rela 
+    ON rela.user_id = user.user_id INNER JOIN vehicles as veh 
+    ON veh.vehicle_id = rela.vehicle_id WHERE user.email = "` + email + `" and user.user_active = 1`
     var results = await query(sql_query)
     if(results.length > 0)
     {
