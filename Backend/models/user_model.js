@@ -61,44 +61,11 @@ user_model.getUserByUserId = async (user_id) =>{
   }
 }
 
-user_model.getUserByQR = async (user_id) =>{
-  try
-  {
-    const sql_query = `SELECT his.checkin_time, user.name, veh.vehicle_type, veh.vehicle_plates 
-    FROM users as user INNER JOIN histories as his ON his.user_id = user.user_id 
-    INNER JOIN users_vehicles as rela ON rela.user_id = user.user_id 
-    INNER JOIN vehicles as veh ON veh.vehicle_id = rela.vehicle_id where his.user_id="` + user_id + `"`
-    var results = await query(sql_query)
-    if(results.length > 0)
-    {
-      const json = {success: true, data: results[0]}
-      const jsonstr = JSON.stringify(json)
-      return jsonstr
-    }
-    else
-    {
-      const json = {success: false, data: 'Cannot find user with user_id: ' + user_id}
-      const jsonstr = JSON.stringify(json)
-      return jsonstr
-    }
-  }
-  catch(err)
-  {
-    console.log('user_model.getUserByQR has error: ' + err.message)
-    const json = {success: false, data: err.message}
-    const jsonstr = JSON.stringify(json)
-    return jsonstr
-  }
-}
 
 user_model.getUserByEmail = async (email) =>{
   try
   {
-    const sql_query = `SELECT user.*, veh.*
-    FROM users as user
-    INNER JOIN users_vehicles as rela 
-    ON rela.user_id = user.user_id INNER JOIN vehicles as veh 
-    ON veh.vehicle_id = rela.vehicle_id WHERE user.email = "` + email + `" and user.user_active = 1`
+    const sql_query = `SELECT * FROM users WHERE email = "` + email + `"` + `and user_active = 1`
     var results = await query(sql_query)
     if(results.length > 0)
     {
