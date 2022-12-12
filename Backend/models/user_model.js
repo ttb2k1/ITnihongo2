@@ -148,11 +148,11 @@ user_model.updateUser = async (user) =>{
 }
 
 
-user_model.deleteUser = async (user) =>{
+user_model.deleteUser = async (user_id) =>{
   try
   {
     var sql = "UPDATE users SET user_active = 0 WHERE user_id = ?"
-    user_list = [user.user_id]
+    user_list = [user_id]
     results = await query(sql,user_list)
     if(results.affectedRows>0)
     {

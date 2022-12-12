@@ -68,8 +68,8 @@ user_controller.updateUser = async (req,res)=>{
 user_controller.deleteUser = async (req,res)=>{
   try
   {
-    const user = req.body
-    const jsonstr = await user_model.deleteUser(user)
+    const user_id = req.params.user_id
+    const jsonstr = await user_model.deleteUser(user_id)
     const json = JSON.parse(jsonstr)
     res.json(json)
   }
