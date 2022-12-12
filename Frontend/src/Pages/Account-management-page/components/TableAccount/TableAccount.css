@@ -38,6 +38,11 @@ body {
     border-radius: 50px;
     line-height: 13px;
 }
+
+.iconDelete:hover{
+    cursor: pointer;
+}
+
 .table-title .add-new i {
     margin-right: 4px;
 }

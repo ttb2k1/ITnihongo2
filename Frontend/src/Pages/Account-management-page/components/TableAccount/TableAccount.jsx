@@ -26,6 +26,7 @@ const TableAccount = () => {
   }, [])
 
   const handleDelete = (id) => {
+    console.log(id);
     ManagementService.deleteUser(id);
     setData(data.filter(item => item.id != id));
   }
@@ -39,13 +40,15 @@ const TableAccount = () => {
         sex: formData.sex,
         phone: formData.phone,
       }
-      ManagementService.addUser(newUser).then((res) => {
-        // setData()
-      })
+      console.log(newUser);
+      // ManagementService.addUser(newUser).then((res) => {
+      //   setData()
+      // })
     } catch (error) {
       console.log(error);
     }
   }
+
 
   return (
     <div className='App'>
@@ -63,8 +66,7 @@ const TableAccount = () => {
             <td>{(item.sex == 0) ? 'Nam' : 'Nữ'}</td>
             <td>{item.phone}</td>
             <td>
-              <AiOutlineEdit />
-              <AiOutlineDelete onClick={() => handleDelete(item.user_id)} />
+              <AiOutlineDelete className='iconDelete' onClick={() => handleDelete(item.user_id)} />
             </td>
           </tr>
         )
@@ -74,25 +76,32 @@ const TableAccount = () => {
       <form>
         <input
           type='text'
-          name='NameUser'
+          name='email'
           required='required'
-          placeholder='Enter a name'
+          placeholder='Enter a Email'
         />
         <input
           type='text'
-          name='Email'
+          name='name'
           required='required'
-          placeholder='Enter a email'
+          placeholder='Enter a Name'
         />
         <input
-          type='text'
-          name='Sex'
+          type='password'
+          name='password'
           required='required'
-          placeholder='Enter a sexual'
+          placeholder='Enter a Password'
         />
+        <select
+          type='text'
+          name='sex'
+        >
+            <option value="0">Nam</option>
+            <option value="1">Nữ</option>
+          </select>
         <input
           type='text'
-          name='PhoneNumber'
+          name='phone'
           required='required'
           placeholder='Enter a phone number'
         />

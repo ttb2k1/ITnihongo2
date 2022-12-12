@@ -12,8 +12,8 @@ class ManagementService {
         return axios.get(BOOK_API_BASE_URL + "user/getuserbyemail");
     }
 
-    addUser() {
-        return axios.post(BOOK_API_BASE_URL + "user/insertuser")
+    addUser(idUser) {
+        return axios.post(BOOK_API_BASE_URL + "user/insertuser", idUser);
     }
 
     updateUser(idUser) {
@@ -21,7 +21,7 @@ class ManagementService {
     }
 
     deleteUser(idUser) {
-        return axios.delete(BOOK_API_BASE_URL + "user/deleteuser/" + idUser);
+        return axios.delete(BOOK_API_BASE_URL + "user/" + idUser);
     }
 
     getListHistory() {
