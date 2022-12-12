@@ -32,6 +32,35 @@ user_controller.getUserByEmail = async (req,res)=>{
   }
 }
 
+user_controller.getUserByUserId = async (req,res)=>{
+  try
+  {
+    const id = req.body.user_id
+    const jsonstr = await user_model.getUserByUserId(id)
+    const json = JSON.parse(jsonstr)
+    res.json(json)
+  }
+  catch(err)
+  {
+    console.log('user_controller.getUserById has error: ' + err.message)
+    res.json({success: false, data: err.message})
+  }
+}
+
+user_controller.getByQR = async (req,res)=>{
+  try
+  {
+    const id = req.body.user_id
+    const jsonstr = await user_model.getUserByQR(id)
+    const json = JSON.parse(jsonstr)
+    res.json(json)
+  }
+  catch(err)
+  {
+    console.log('user_controller.getUserByQR has error: ' + err.message)
+    res.json({success: false, data: err.message})
+  }
+}
 
 user_controller.insertUser = async (req,res)=>{
   try
