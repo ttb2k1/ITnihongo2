@@ -1,71 +1,87 @@
-var veh_model = module.exports
-const conn = require("../config/database")
-const util = require("util")
-const uuid = require("uuid")
-const query = util.promisify(conn.query).bind(conn)
+var veh_model = module.exports;
+const conn = require('../config/database');
+const util = require('util');
+const uuid = require('uuid');
+const query = util.promisify(conn.query).bind(conn);
 
+veh_model.getAllVeh = async () => {
+  try {
+    const sql_query = `SELECT * FROM vehicles`;
+    var result = await query(sql_query);
+    if (result.length > 0) {
+      const json = { success: true, data: result };
+      const jsonstr = JSON.stringify(json);
+      return jsonstr;
+    } else {
+      const json = { success: false, data: 'Database has already empty.' };
+      const jsonstr = JSON.stringify(json);
+      return jsonstr;
+    }
+  } catch (err) {
+    console.log('getAllVeh has error: ' + err.message);
+    const json = { success: false, data: err.message };
+    const jsonstr = JSON.stringify(json);
+    return jsonstr;
+  }
+};
 
-veh_model.getAllVeh = async () =>{
+veh_model.getVehByVehId = async (vehicle_id) =>{
   try
   {
-    const sql_query = `SELECT * FROM vehicles WHERE vehicle_id = 'veh01'`
-    var result = await query(sql_query)
-    if(result.length > 0)
+    const sql_query = `SELECT * FROM vehicles WHERE vehicle_id = "` + vehicle_id + `"`
+    var results = await query(sql_query)
+    if(results.length > 0)
     {
-      const json = {success: true, data: result}
+      const json = {success: true, data: results[0]}
       const jsonstr = JSON.stringify(json)
       return jsonstr
     }
     else
     {
-      const json = {success: false, data: 'Database has already empty.'}
+      const json = {success: false, data: 'Cannot find vehicle with id: ' + vehicle_id}
       const jsonstr = JSON.stringify(json)
       return jsonstr
     }
   }
   catch(err)
   {
-    console.log('getAllVeh has error: ' + err.message)
+    console.log('veh_model.getVehByVehId has error: ' + err.message)
     const json = {success: false, data: err.message}
     const jsonstr = JSON.stringify(json)
     return jsonstr
   }
-}
+};
 
-
-veh_model.getVehByType = async (type) =>{
-  try
-  {
-    const sql_query = `SELECT * FROM vehicles WHERE vehicle_type = '` + type + `'`
-    var result = await query(sql_query)
-    if(result.length > 0)
-    {
-      const json = {success: true, data: result}
-      const jsonstr = JSON.stringify(json)
-      return jsonstr
+veh_model.getVehByType = async (type) => {
+  try {
+    const sql_query =
+      `SELECT * FROM vehicles WHERE vehicle_type = '` + type + `'`;
+    var result = await query(sql_query);
+    if (result.length > 0) {
+      const json = { success: true, data: result };
+      const jsonstr = JSON.stringify(json);
+      return jsonstr;
+    } else {
+      const json = {
+        success: false,
+        data: 'Cannot find any vehicle by this type: ' + type,
+      };
+      const jsonstr = JSON.stringify(json);
+      return jsonstr;
     }
-    else
-    {
-      const json = {success: false, data: 'Cannot find any vehicle by this type: ' + type}
-      const jsonstr = JSON.stringify(json)
-      return jsonstr
-    }
+  } catch (err) {
+    console.log('getVehByType has error: ' + err.message);
+    const json = { success: false, data: err.message };
+    const jsonstr = JSON.stringify(json);
+    return jsonstr;
   }
-  catch(err)
-  {
-    console.log('getVehByType has error: ' + err.message)
-    const json = {success: false, data: err.message}
-    const jsonstr = JSON.stringify(json)
-    return jsonstr
-  }
-}
-
+};
 
 veh_model.insertVeh = async (veh) =>{
   try
   {
     var sql = "INSERT INTO vehicles (vehicle_id, vehicle_type, vehicle_plates, vehicle_color, vehicle_active) VALUES ?"
-    var new_veh = [[uuid.v4(), veh.vehicle_type, veh.vehicle_plates, veh.vehicle_color, veh.vehicle_active]]
+    var new_veh = [[uuid.v4(), veh.vehicle_type, veh.vehicle_plates, veh.vehicle_color, 1]]
     result = await query(sql,[new_veh])
     if(result.affectedRows>0)
     {
@@ -87,8 +103,7 @@ veh_model.insertVeh = async (veh) =>{
     const jsonstr = JSON.stringify(json)
     return jsonstr
   }
-}
-
+};
 
 veh_model.updateVeh = async (veh) =>{
   try
@@ -116,7 +131,7 @@ veh_model.updateVeh = async (veh) =>{
     const jsonstr = JSON.stringify(json)
     return jsonstr
   }
-}
+};
 
 
 veh_model.deleteVeh = async (veh) =>{
@@ -145,4 +160,4 @@ veh_model.deleteVeh = async (veh) =>{
     const jsonstr = JSON.stringify(json)
     return jsonstr
   }
-}
+};
