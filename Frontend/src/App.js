@@ -23,7 +23,7 @@ function App() {
               <Route exact path="payment" element={<PaymentPage />} />
               <Route exact path="ticket" element={<QRPage />} />
               <Route exact path="info" element={<InfoUser />} />
-              <Route exact path="management" element={<ManagementPage />} />
+              <Route exact path="management/" element={<ManagementPage />} />
               <Route exact path="management/account" element={<AccountPage/>} />
               <Route exact path="management/history" element={<HistoryPage/>} />
               <Route exact path="management/test" element={<QRScanner/>} />

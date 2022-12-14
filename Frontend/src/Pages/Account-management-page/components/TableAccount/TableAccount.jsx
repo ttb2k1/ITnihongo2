@@ -28,7 +28,7 @@ const TableAccount = () => {
   const handleDelete = (id) => {
     console.log(id);
     ManagementService.deleteUser(id);
-    setData(data.filter(item => item.id != id));
+    setData(data.filter(item => item.user_id != id));
   }
 
   const handleAdd = () => {
@@ -37,18 +37,19 @@ const TableAccount = () => {
         email: formData.email,
         password: formData.password,
         name: formData.name,
-        sex: formData.sex,
+        sex: formData.sex  ? formData.sex : "0",
         phone: formData.phone,
+        role: 1
       }
-      console.log(newUser);
-      // ManagementService.addUser(newUser).then((res) => {
-      //   setData()
-      // })
+      ManagementService.addUser(newUser)
     } catch (error) {
       console.log(error);
     }
   }
 
+  const handleChange = (e) => {
+    setFormData({...formData, [e.target.name]: e.target.value})
+  }
 
   return (
     <div className='App'>
@@ -59,8 +60,8 @@ const TableAccount = () => {
           <th>Sexual</th>
           <th>Phone number</th>
         </tr>
-        {data?.map((item, index) => (
-          <tr key={index}>
+        {data?.map((item) => (
+          <tr key={item.user_id}>
             <td>{item.name}</td>
             <td>{item.email}</td>
             <td>{(item.sex == 0) ? 'Nam' : 'Nữ'}</td>
@@ -79,31 +80,36 @@ const TableAccount = () => {
           name='email'
           required='required'
           placeholder='Enter a Email'
+          onChange={handleChange}
         />
         <input
           type='text'
           name='name'
           required='required'
           placeholder='Enter a Name'
+          onChange={handleChange}
         />
         <input
           type='password'
           name='password'
           required='required'
           placeholder='Enter a Password'
+          onChange={handleChange}
         />
         <select
           type='text'
           name='sex'
+          onChange={handleChange}
         >
-            <option value="0">Nam</option>
-            <option value="1">Nữ</option>
-          </select>
+          <option value="0">Nam</option>
+          <option value="1">Nữ</option>
+        </select>
         <input
           type='text'
           name='phone'
           required='required'
           placeholder='Enter a phone number'
+          onChange={handleChange}
         />
         <button onClick={handleAdd}> Add </button>
       </form>

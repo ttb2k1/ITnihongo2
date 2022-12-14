@@ -1,39 +1,43 @@
 import axios from 'axios';
 
-const BOOK_API_BASE_URL = 'http://localhost:3005/';
+const API_BASE_URL = 'http://localhost:3005/';
 
 
 class ManagementService {
     getAllUser() {
-        return axios.get(BOOK_API_BASE_URL + "user/getallusers");
+        return axios.get(API_BASE_URL + "user/getallusers");
     }
 
     getUserByEmail(email) {
-        return axios.get(BOOK_API_BASE_URL + "user/getuserbyemail");
+        return axios.get(API_BASE_URL + "user/getuserbyemail");
     }
 
     addUser(idUser) {
-        return axios.post(BOOK_API_BASE_URL + "user/insertuser", idUser);
+        return axios.post(API_BASE_URL + "user/insertuser", idUser);
     }
 
     updateUser(idUser) {
-        return axios.put(BOOK_API_BASE_URL + "user/updateuser/" + idUser)
+        return axios.put(API_BASE_URL + "user/updateuser" + idUser)
     }
 
     deleteUser(idUser) {
-        return axios.delete(BOOK_API_BASE_URL + "user/" + idUser);
+        return axios.delete(API_BASE_URL + "user/" + idUser);
     }
 
     getListHistory() {
-        return axios.get(BOOK_API_BASE_URL + "history/list");
+        return axios.get(API_BASE_URL + "history/list");
     }
 
     getDetailHistory(idUser) {
-        return axios.get(BOOK_API_BASE_URL + "history/detail/" + idUser)
+        return axios.get(API_BASE_URL + "history/detail/" + idUser)
     }
 
     getDetailVel(idUser) {
-        return axios.get(BOOK_API_BASE_URL + "history/detailVeh" + idUser)
+        return axios.get(API_BASE_URL + "history/detailVeh" + idUser)
+    }
+
+    getUserByQR(idUser) {
+        return axios.post(API_BASE_URL + 'user/getuserbyqr', idUser)
     }
 
 
