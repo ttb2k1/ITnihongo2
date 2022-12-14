@@ -4,8 +4,6 @@ const user_controller = require("../controllers/user_controller")
 
 
 router.get("/getallusers",user_controller.getAllUsers)
-router.post("/getuserbyqr",user_controller.getByQR)
-router.post("/getuserbyuserid",user_controller.getUserByUserId)
 router.post("/getuserbyemail",user_controller.getUserByEmail)
 router.post("/insertuser",user_controller.insertUser)
 router.put("/updateuser",user_controller.updateUser)

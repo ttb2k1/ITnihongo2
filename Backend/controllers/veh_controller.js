@@ -16,21 +16,6 @@ veh_ctl.getAllVeh = async (req,res)=>{
   }
 }
 
-veh_ctl.getVehByVehId = async (req,res)=>{
-  try
-  {
-    const id = req.body.veh_id
-    const jsonstr = await veh_model.getVehByVehId(id)
-    const json = JSON.parse(jsonstr)
-    res.json(json)
-  }
-  catch(err)
-  {
-    console.log('getVehByVehId has error: ' + err.message)
-    res.json({success: false, data: err.message})
-  }
-}
-
 
 veh_ctl.getVehByType = async (req,res)=>{
   try
@@ -52,7 +37,7 @@ veh_ctl.insertVeh = async (req,res)=>{
   try
   {
     const veh = req.body
-    const jsonstr = await veh_model.insertVeh(veh)
+    const jsonstr = await veh_model.insertveh(veh)
     const json = JSON.parse(jsonstr)
     res.json(json)
   }
